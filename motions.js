@@ -2,10 +2,6 @@
   const pages = document.querySelectorAll('.FullPage');
   const lastPage = pages.length-1;
 
-  window.onpopstate = function(e) {
-    router(window.location.pathname.substr(1));
-  };
-
   let currentPage = parseInt(window.location.pathname.substr(1)) || 0;
   if (currentPage > pages.length-1) { currentPage = pages.length-1; }
   let switchMode = false;
@@ -16,6 +12,7 @@
 
   pages[currentPage].style.display = 'block';
   pages[currentPage].style.opacity = 100;
+
 
   const keyframes = [
     [
@@ -54,6 +51,8 @@
   fireKeyFrames(currentPage);
 
   function router(next) {
+    next = +next;
+    if (!pages[next]) { return; }
     if (next < 0)             { next = 0; }
     if (next >= pages.length) { next = pages.length-1; }
     if (next === currentPage) { switchMode = false; return; }
@@ -113,27 +112,34 @@
 
   function scrollHandler(e) {
     if (Math.abs(e.deltaX) > 1) { return; }
-    console.log(e);
+    // console.log(e);
 
     if (e.deltaY < -1) {
       // Scroll Up
       if (!switchMode) {
-        console.log('up');
         switchMode = true;
-        window.history.pushState({}, '', `/${currentPage-1 >= 0?currentPage-1:0}` )
+        window.history.pushState({}, '', `/${currentPage-1 >= 0?parseInt(currentPage)-1:0}` )
         router(currentPage-1);
       }
     } else if (e.deltaY > 1) {
       // Scroll Down
       if (!switchMode){
-        console.log('down');
         switchMode = true;
-        window.history.pushState({}, '', `/${currentPage+1 <= lastPage?currentPage+1:lastPage}` )
+        window.history.pushState({}, '', `/${currentPage+1 <= lastPage?parseInt(currentPage)+1:lastPage}` )
         router(currentPage+1);
       }
     }
   }
 
+  window.onpopstate = function(e) {
+    if (!switchMode) {
+      router(window.location.pathname.substr(1));
+    } else {
+      setTimeout(()=> {
+        router(window.location.pathname.substr(1));
+      }, 2000)
+    }
+  };
   window.addEventListener('mousewheel', scrollHandler);
   window.addEventListener('DOMMouseScroll', scrollHandler);
 }())
