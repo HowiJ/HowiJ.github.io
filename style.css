@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+a {
+  text-decoration: none;
+  color: gray;
+}
+a:hover {
+  text-decoration: none;
+  color: white;
+}
+#Container {
+  width: 100vw;
+  height: 100vh;
+  background: slategray;
+}
+.FullPage, .TransitionPage {
+  padding-top: 10vh;
+  opacity: 0;
+
+  height: 100vh;
+  width: 100vw;
+
+  background: white;
+
+  top: 0;
+  position: absolute;
+}
+.centered * {
+  text-align: center;
+  vertical-align: middle;
+}
+.centered .container {
+  height: 100%;
+}
+.TransitionPage {
+  text-align: center;
+  padding-top: 40vh;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadetwo {
+  0%    { opacity: 0; }
+  33%   { opacity: 0; }
+  100%  { opacity: 1; }
+}
+@keyframes fadethree {
+  0%    { opacity: 0; }
+  50%   { opacity: 0; }
+  100%  { opacity: 1; }
+}
+.animOne {
+  display: block;
+  animation: fadein 2s;
+}
+.animTwo {
+  display: block;
+  animation: fadetwo 3s;
+}
+.animThree {
+  display: block;
+  animation: fadethree 4s;
+}
+
+.dispNone {
+  opacity: 0;
+}
+
+
+.Home{
+  display: none;
+  background: url('imgs/road_ground_o.jpg');
+  background-size: cover;
+  background-position-x: center;
+
+  color: white;
+}
+.Home .container {
+  margin-top: 20vh;
+}
+.scrollContinue {
+  /*animation: fadethree 4s;*/
+  color: white;
+  position: absolute;
+  top: 90vh;
+  width: 100%;
+}
+
+
+.About{
+  display: none;
+  /*background: lightgoldenrodyellow;*/
+  /*background: url('imgs/falls_ice.jpg');*/
+  background: url('imgs/raindrops.gif');
+  background-size: cover;
+  background-position-x: center;
+  color: RGB(00,00,00);
+}
+.recommendations .name {
+  font-size: 1em;
+}
+.recommendations .title {
+  color: white;
+  font-size: 0.75em;
+}
+.recommendations .description {
+  max-height: 20vh;
+}
+
+
+.Skills{
+  display: none;
+  /*background: lightgreen;*/
+  background: url('imgs/river.gif');
+  background-size: cover;
+  background-position-x: center;
+  color: gray;
+}
+.Projects{
+  display: none;
+  /*background: lightskyblue;*/
+  background: url('imgs/water.gif');
+  background-size: cover;
+  background-position-x: center;
+}
+.Projects .project {
+  /*border: 3px solid rgba(90,90,90,0.2);*/
+  background: rgba(100, 100, 100, 0.1);
+  padding: 1em;
+  border-radius: 1em;
+  filter: grayscale(100%);
+}
+.Projects .project:hover {
+  transition: .5s ease-in-out;
+  filter: grayscale(0%);
+}
+.Projects .project .title { 
+  color: black;
+  font-size: 1.5em;
+  text-align: center;
+}
+.Projects .project .img img {
+  /*height: 15vh;*/
+  width: 100%;
+}
+
+
+.Contact{
+  display: none;
+  /*background: lightgray;*/
+  /*background: url('imgs/sun_pano_optimized.jpg');*/
+  background: url('imgs/clouds.gif');
+  background-size: cover;
+  background-position-x: center;
+  padding-top: 20vh;
+}
+.Contact a {
+  color: white;
+}
+.Contact a:hover {
+  transition: 0.5s ease-in-out;
+  color: gray;
+}
+.Contact i.contact {
+  font-size: 8em;
+}
+.Contact h1 {
+  color: white;
+}
+.Contact * {
+  text-align: center;
+}
