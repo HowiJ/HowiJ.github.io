@@ -11,10 +11,11 @@
   window.history.pushState({}, '', `/${currentPage}` )
 
   const transitionPage = document.querySelector('.TransitionPage');
+  const LoadingPage = document.getElementById('LoadingPage');
   transitionPage.style.display = 'none';
 
-  pages[currentPage].style.display = 'block';
-  pages[currentPage].style.opacity = 100;
+  // pages[currentPage].style.display = 'block';
+  pages[currentPage].style.opacity = 1;
 
 
   const keyframes = [

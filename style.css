@@ -42,6 +42,12 @@ a:hover {
   text-align: center;
   padding-top: 40vh;
 }
+div#LoadingPage {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: white;
+}
 
 @keyframes fadein {
   from { opacity: 0; }
