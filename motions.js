@@ -52,12 +52,10 @@
 
   function router(next) {
     next = +next;
-    if (!pages[next]) { return; }
     if (next < 0)             { next = 0; }
     if (next >= pages.length) { next = pages.length-1; }
     if (next === currentPage) { switchMode = false; return; }
     document.getElementById('title_next').innerHTML = pages[next].dataset.page;
-
 
     transitionPage.style.display = 'block';
     const max = 150;
