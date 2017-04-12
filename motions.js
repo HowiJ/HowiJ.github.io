@@ -1,5 +1,6 @@
 (function () {
   const pages = document.querySelectorAll('.FullPage');
+  const lastPage = pages.length-1;
 
   window.onpopstate = function(e) {
     router(window.location.pathname.substr(1));
@@ -103,7 +104,6 @@
         pages[currentPage].style.display = 'none';
         currentPage = next;
         pages[currentPage].style.display = 'block';
-        window.history.pushState({}, '', `/${currentPage}` )
         pages[currentPage].style.opacity = 1;
       }
       
@@ -113,17 +113,22 @@
 
   function scrollHandler(e) {
     if (Math.abs(e.deltaX) > 1) { return; }
+    console.log(e);
 
-    if (e.deltaY < 0) {
+    if (e.deltaY < -1) {
       // Scroll Up
       if (!switchMode) {
+        console.log('up');
         switchMode = true;
+        window.history.pushState({}, '', `/${currentPage-1 >= 0?currentPage-1:0}` )
         router(currentPage-1);
       }
-    } else {
+    } else if (e.deltaY > 1) {
       // Scroll Down
       if (!switchMode){
+        console.log('down');
         switchMode = true;
+        window.history.pushState({}, '', `/${currentPage+1 <= lastPage?currentPage+1:lastPage}` )
         router(currentPage+1);
       }
     }
