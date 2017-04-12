@@ -22,7 +22,7 @@
       name: 'NodeSC',
       img_url: './imgs/letters4animals.png',
       site_url: 'http://letters4animals.org',
-      description: 'Letters4Animals',
+      description: 'A non-profit project using the Scrum Framework based on Agile Methodologies. Front-end: AngularJS, Back-end: NodeJS + ExpressJS + PostGREsql. Created many back-end algorithms for data retrieval from Google Civics API, as well as password resetting & email confirmation. Created front-end for password reset. Created a system to wipe users that have registered but have not confirmed their email after a certain time.',
     },
   ];
   const pd_name = document.getElementById('pd_name');
