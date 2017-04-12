@@ -11,6 +11,9 @@ a:hover {
   text-decoration: none;
   color: white;
 }
+.t_center {
+  text-align: center;
+}
 #Container {
   width: 100vw;
   height: 100vh;
@@ -133,20 +136,34 @@ a:hover {
   background: rgba(100, 100, 100, 0.1);
   padding: 1em;
   border-radius: 1em;
-  filter: grayscale(100%);
+  /*filter: grayscale(100%);*/
 }
-.Projects .project:hover {
+/*.Projects .project:hover {
   transition: .5s ease-in-out;
   filter: grayscale(0%);
-}
+}*/
 .Projects .project .title { 
   color: black;
   font-size: 1.5em;
   text-align: center;
 }
 .Projects .project .img img {
-  /*height: 15vh;*/
   width: 100%;
+}
+.Projects .project .project_img img {
+  width: 100%;
+}
+.Projects .project .description {
+  color: white;
+}
+.Projects .project_selector {
+  color: white;
+  background: rgba(100,100,100,0.7);
+}
+.Projects .project_selector:hover {
+  color: rgba(100,100,100,0.7);
+  background: white;
+  cursor: pointer;
 }
 
 
