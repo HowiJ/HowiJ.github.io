@@ -7,10 +7,14 @@
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     
     <meta charset='utf-8'>
-    <script src="./motions.js" defer></script>
+    <script src="./js/motions.js" defer></script>
+    <script src="./js/projects.js" defer></script>
   </head>
   <body>
     <div id="Container">
+      <!-- --------------------------------------------- -->
+      <!--                   Home Page                   -->
+      <!-- --------------------------------------------- -->
       <div class="FullPage Home centered" data-page="Home">
         <div class="container">
           <div class="row">
@@ -18,23 +22,6 @@
               <h4 id="name">Howard Jiang</h4>
             </div>
           </div>
-          <!--<div class="row">
-            <div class="columns two offset-by-two">
-              <h5>Full Stack</h5>
-            </div>
-            <div class="columns one">
-              <p>|</p>
-            </div>
-            <div class="columns two">
-              <h5>Front End</h5>
-            </div>
-            <div class="columns one">
-              <p>|</p>
-            </div>
-            <div class="columns two">
-              <h5>Back End</h5>
-            </div>
-          </div>-->
             <div class="row">
               <div class="columns twelve">
                 <h1 id="title">Web Developer</h1>
@@ -47,6 +34,10 @@
         </div>
       </div>
 
+
+      <!-- --------------------------------------------- -->
+      <!--                  About Page                   -->
+      <!-- --------------------------------------------- -->
       <div class="FullPage About" data-page="About">
         <div class="container">
           <div class="row" id="kf_about_titl">
@@ -134,6 +125,9 @@
         </div>
       </div>
 
+      <!-- --------------------------------------------- -->
+      <!--                  Skills Page                  -->
+      <!-- --------------------------------------------- -->
       <!--<div class="FullPage Skills" data-page="Skills">
         <div class="container">
           <div class="row">
@@ -144,16 +138,14 @@
         </div>
       </div>-->
 
+      <!-- --------------------------------------------- -->
+      <!--                 Projects Page                 -->
+      <!-- --------------------------------------------- -->
       <div class="FullPage Projects" data-page="Projects">
         <div class="container">
           <div class="row">
             <div class="columns twelve">
-              <h1>Projects</h1>
-            </div>
-          </div>
-          <div class="row">
-            <div class="columns twelve">
-              <a href="https://github.com/HowiJ" target="__BLANK">https://github.com/HowiJ</a>
+              <a href="https://github.com/HowiJ" target="__BLANK"><h1>Github.com/HowiJ</h1></a>
               </div>
           </div>
           <br>
@@ -161,32 +153,50 @@
             <div class="columns twelve project">
               <div class="row">
                 <div class="columns twelve">
-                  <h5 class="name t_center">Placeholder</h5>
+                  <h5 class="name t_center" id="pd_name">Placeholder</h5>
                 </div>
               </div>
               <div class="row">
                 <div class="columns six project_img">
-                  <img src="./imgs/codeboard.png" alt="Placeholder">
+                  <img src="./imgs/codeboard.png" alt="Placeholder" id="pd_img">
                 </div>
                 <div class="columns six description">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur delectus, distinctio eveniet aperiam iure culpa est. Id, nulla, vel delectus dolore, officia quos temporibus eos magnam asperiores, nobis repellat mollitia!
+                  <div class="row">
+                    <div class="columns eleven offset-by-one">
+                      <a href="http://google.com" id="pd_url" target="__BLANK">http://google.com</a>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="columns twelve" id="pd_desc">
+                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur delectus, distinctio eveniet aperiam iure culpa est. Id, nulla, vel delectus dolore, officia quos temporibus eos magnam asperiores, nobis repellat mollitia!
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <br>
           <div class="row">
-            <div class="columns three project_selector t_center">
-              CodeBoard
+            <div class="columns three">
+              <a href="http://codeboard.vkutuyev.com" target="__BLANK">
+                <div class="project_selector t_center active">CodeBoard</div>
+              </a>
             </div>
-            <div class="columns three project_selector t_center">
-              NodeSC
+            <div class="columns three">
+              <a href="https://npmjs.com/package/nodesc" target="__BLANK">
+                <div class="project_selector t_center">NodeSC</div>
+              </a>
             </div>
-            <div class="columns three project_selector t_center">
-              Demos
+            <div class="columns three">
+              <a href="http://demos.howardjiang.com" target="__BLANK">
+                <div class="project_selector t_center">Demos</div>
+              </a>
             </div>
-            <div class="columns three project_selector t_center">
-              Letters4Animals
+            <div class="columns three">
+              <a href="http://letters4animals.org" target="__BLANK">
+                <div class="project_selector t_center">Letters4Animals</div>
+              </a>
             </div>
           </div>
 
@@ -256,6 +266,11 @@
         </div>
       </div>
 
+
+
+      <!-- --------------------------------------------- -->
+      <!--                 Contact Page                  -->
+      <!-- --------------------------------------------- -->
       <div class="FullPage Contact" data-page="Contact">
         <div class="container">
           <div class="row">

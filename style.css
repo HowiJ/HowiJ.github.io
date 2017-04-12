@@ -156,9 +156,20 @@ a:hover {
 .Projects .project .description {
   color: white;
 }
+#pp_title {
+  color: black;
+}
+#pd_img {
+  border-radius: 5px;
+  border: 1px rgba(100, 100, 100, 0.8);
+}
 .Projects .project_selector {
   color: white;
   background: rgba(100,100,100,0.7);
+}
+.Projects .project_selector.active {
+  color: rgba(100,100,100,0.7);
+  background: rgba(50,50,50,0.7);
 }
 .Projects .project_selector:hover {
   color: rgba(100,100,100,0.7);
