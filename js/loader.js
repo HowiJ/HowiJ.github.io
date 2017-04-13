@@ -37,10 +37,10 @@
   messages.splice(rng, 1);
   const msgInt = setInterval(() => {
     if (!doneLoading) {
-      let rng = Math.floor(Math.random()*messages.length)
-      sent.innerHTML = messages[rng];
-      other.push(messages[rng]);
-      messages.splice(rng, 1);
+      let rng = Math.floor(Math.random()*current.length)
+      sent.innerHTML = current[rng];
+      other.push(current[rng]);
+      current.splice(rng, 1);
       if (current.length == 0) {
         let tmp = current;
         current = other;
@@ -49,7 +49,7 @@
     } else {
       clearInterval(msgInt);
     }
-  }, 2500)
+  }, 3000)
 
 
 
