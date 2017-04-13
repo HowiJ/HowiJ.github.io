@@ -1,22 +1,29 @@
 (function(){
+  let doneLoading = false;
+  let bool = false;
 
-  const Home = document.getElementsByClassName('Home')[0];
-  const About = document.getElementsByClassName('About')[0];
-  const Projects = document.getElementsByClassName('Projects')[0];
-  const Contact = document.getElementsByClassName('Contact')[0];
-
-  function handleLoadEvent (e) {
-    console.log(this, e);
-  }
-
-  Home.addEventListener('load', handleLoadEvent.bind(Home));
-  About.addEventListener('load', handleLoadEvent.bind(About));
-  Projects.addEventListener('load', handleLoadEvent.bind(Projects));
-  Contact.addEventListener('load', handleLoadEvent.bind(Contact));
+  const messages = [
+    'Answering some callbacks',
+    'Creating a few objects',
+    'Solving some algorithms',
+    'Making some tea',
+    'Playing some volleyball',
+    'Taking a nap',
+    'Surfing the web',
+    'Changing your application state',
+    'Listening to some events',
+    'sudo rm -rf /'
+  ];
+  const usedMessages = [];
+  const current = messages;
+  const other = usedMessages;
 
   const dots = document.getElementById('lp_dot');
+  const sent = document.getElementById('lp_txt');
   let str = dots.innerText;
-  setInterval(()=> {
+  const dotInt = setInterval(()=> {
+    if (doneLoading) { clearInterval(dotInt); }
+
     str+='.';
     if (str.length >= 4) {
       str = '.';
@@ -24,10 +31,29 @@
     dots.innerHTML = str;
   }, 500);
 
+  let rng = Math.floor(Math.random()*messages.length)
+  sent.innerHTML = messages[rng];
+  usedMessages.push(messages[rng]);
+  messages.splice(rng, 1);
+  const msgInt = setInterval(() => {
+    if (!doneLoading) {
+      let rng = Math.floor(Math.random()*messages.length)
+      sent.innerHTML = messages[rng];
+      other.push(messages[rng]);
+      messages.splice(rng, 1);
+      if (current.length == 0) {
+        let tmp = current;
+        current = other;
+        other = tmp;
+      }
+    } else {
+      clearInterval(msgInt);
+    }
+  }, 2500)
+
 
 
   function init() {
-    console.log('Everything Loaded');
     const lp = document.getElementById('LoadingPage');
     const stallTime = 60;
     const maxTime = 60;
@@ -39,7 +65,6 @@
       if (mode === false && elapsedTime >= stallTime) {
         mode = true;
         elapsedTime = 0;
-        console.log('wtf');
       }
 
       if (mode === true) {
@@ -50,7 +75,6 @@
         }
         lp.style.opacity = 1-elapsedTime/maxTime; 
       }
-      // console.log(elapsedTime/maxTime)
     },1000/60)
   }
   const loaded = setInterval(() => {
@@ -59,6 +83,7 @@
       init();
       document.getElementById('lp_title').innerHTML = 'Loaded';
       const pages = document.querySelectorAll('.FullPage');
+      doneLoading = true;
       setTimeout(()=>{
         let currentPage = parseInt(window.location.pathname.substr(1)) || 0;
         pages[currentPage].style.display = 'block';
