@@ -1,6 +1,52 @@
 (function(){
   let doneLoading = false;
+  let loadComplete = false;
   let bool = false;
+
+  // loadAboutBackground();
+  // //About pre-load
+  // function loadAboutBackground () {
+  //   let x = new Image();
+  //   x.src = '/imgs/raindrops.gif';
+  //   x.onload = function(e) {
+  //     const el = document.getElementsByClassName('About')[0]
+  //     el.style.background = "url('/imgs/raindrops.gif')";
+  //     el.style.backgroundSize = 'cover';
+  //     delete x;
+  //     console.log('About Loaded');
+  //     loadComplete = true;
+  //     loadProjectsBackground();
+  //   }  
+  // };
+
+  // //Projects pre-load
+  // function loadProjectsBackground () {
+  //   let x = new Image();
+  //   x.src = '/imgs/clouds.gif';
+  //   x.onload = function(e) {
+  //     const el = document.getElementsByClassName('Projects')[0]
+  //     el.style.background = "url('/imgs/water.gif')";
+  //     el.style.backgroundSize = 'cover';
+  //     delete x;
+  //     console.log('Projects Loaded');
+  //     loadContactsBackground();
+  //   }  
+  // };
+
+  // // Contact pre-load
+  // function loadContactsBackground () {
+  //   let x = new Image();
+  //   x.src = '/imgs/clouds.gif';
+  //   x.onload = function(e) {
+  //     const el = document.getElementsByClassName('Contact')[0]
+  //     el.style.background = "url('/imgs/clouds.gif')";
+  //     el.style.backgroundSize = 'cover';
+  //     delete x;
+  //     console.log('Contacts Loaded');
+  //   }  
+  // }
+
+
 
   const messages = [
     'Answering some callbacks',
@@ -79,6 +125,7 @@
   }
   const loaded = setInterval(() => {
     if (/loaded|complete/.test(document.readyState)) {
+    // if (loadComplete) {
       clearInterval(loaded);
       init();
       document.getElementById('lp_title').innerHTML = 'Loaded';

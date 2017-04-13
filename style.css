@@ -20,7 +20,7 @@ a:hover {
   background: slategray;
 }
 .FullPage, .TransitionPage {
-  padding-top: 10vh;
+  padding-top: 5vh;
   opacity: 0;
 
   height: 100vh;
@@ -85,18 +85,19 @@ div#LoadingPage {
 
 .Home{
   display: none;
-  background: url('imgs/road_ground_o.jpg');
+  /*background: url('imgs/road_ground_o.jpg');*/
+  background: url('imgs/raindrops_o.gif');
   background-size: cover;
   background-position-x: center;
 
-  color: white;
+  color: rgba(255,255,255,0.8);
 }
 .Home .container {
   margin-top: 20vh;
 }
 .scrollContinue {
   /*animation: fadethree 4s;*/
-  color: white;
+  color: rgba(255,255,255,0.7);
   position: absolute;
   top: 90vh;
   width: 100%;
@@ -107,20 +108,29 @@ div#LoadingPage {
   display: none;
   /*background: lightgoldenrodyellow;*/
   /*background: url('imgs/falls_ice.jpg');*/
-  background: url('imgs/raindrops.gif');
+  background: url('imgs/lights_o.jpg');
+  /*background: url('imgs/still_raindrops.gif');*/
   background-size: cover;
   background-position-x: center;
-  color: RGB(00,00,00);
+  color: RGB(0,0,0);
 }
 .recommendations .name {
   font-size: 1em;
+  color: rgba(0,0,0,0.7);
 }
 .recommendations .title {
-  color: white;
+  color: gray;
   font-size: 0.75em;
 }
 .recommendations .description {
   max-height: 20vh;
+  color: rgba(0,0,0,0.7);
+}
+.c_white {
+  color: rgba(255, 255, 255, 0.8);
+}
+.t_black {
+  color: rgba(0,0,0,0.7);
 }
 
 
@@ -135,7 +145,8 @@ div#LoadingPage {
 .Projects{
   display: none;
   /*background: lightskyblue;*/
-  background: url('imgs/water.gif');
+  /*background: url('imgs/still_water.gif');*/
+  background: url('imgs/fence_o.jpg');
   background-size: cover;
   background-position-x: center;
 }
@@ -165,19 +176,23 @@ div#LoadingPage {
   color: white;
 }
 #pp_title {
-  color: black;
+  text-align: center;
+}
+#pp_title:hover {
+  transition: 1s ease-in-out;
+  color: rgba(255,255,255,0.6);
 }
 #pd_img {
   border-radius: 5px;
   border: 1px rgba(100, 100, 100, 0.8);
 }
 .Projects .project_selector {
-  color: white;
+  color: rgba(255,255,255,0.7);
   background: rgba(100,100,100,0.7);
 }
 .Projects .project_selector.active {
   color: rgba(100,100,100,0.7);
-  background: rgba(50,50,50,0.7);
+  background: rgba(255,255,255,0.3);
 }
 .Projects .project_selector:hover {
   color: rgba(100,100,100,0.7);
@@ -190,13 +205,14 @@ div#LoadingPage {
   display: none;
   /*background: lightgray;*/
   /*background: url('imgs/sun_pano_optimized.jpg');*/
-  background: url('imgs/clouds.gif');
+  /*background: url('imgs/still_clouds.gif');*/
+  background: url('imgs/night_o.jpg');
   background-size: cover;
   background-position-x: center;
   padding-top: 20vh;
 }
 .Contact a {
-  color: white;
+  color: rgba(255,255,255,0.8);
 }
 .Contact a:hover {
   transition: 0.5s ease-in-out;
