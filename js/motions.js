@@ -2,6 +2,8 @@
   if (window.innerWidth < 550) {
     console.log('width lower than 550px... Shouldn\'t use this...');
   }
+  
+  
   const pages = document.querySelectorAll('.FullPage');
   const lastPage = pages.length-1;
 

@@ -1,4 +1,18 @@
 (function(){
+  const Home = document.getElementsByClassName('Home')[0];
+  const About = document.getElementsByClassName('About')[0];
+  const Projects = document.getElementsByClassName('Projects')[0];
+  const Contact = document.getElementsByClassName('Contact')[0];
+
+  function handleLoadEvent (e) {
+    console.log(this, e);
+  }
+
+  Home.addEventListener('load', handleLoadEvent.bind(Home));
+  About.addEventListener('load', handleLoadEvent.bind(About));
+  Projects.addEventListener('load', handleLoadEvent.bind(Projects));
+  Contact.addEventListener('load', handleLoadEvent.bind(Contact));
+
   function init() {
     console.log('Everything Loaded');
     const lp = document.getElementById('LoadingPage');
