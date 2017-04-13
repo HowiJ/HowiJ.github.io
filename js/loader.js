@@ -15,8 +15,8 @@
     'sudo rm -rf /'
   ];
   const usedMessages = [];
-  const current = messages;
-  const other = usedMessages;
+  let current = messages;
+  let other = usedMessages;
 
   const dots = document.getElementById('lp_dot');
   const sent = document.getElementById('lp_txt');
