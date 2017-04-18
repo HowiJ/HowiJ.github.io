@@ -2,7 +2,7 @@
   const dots = document.getElementById('lp_dot');
   const sent = document.getElementById('lp_txt');
 
-  if (window.innerWidth < 550 || window.innerHeight <= 580) {
+  if (window.innerWidth < 550 || window.innerHeight < 580) {
     console.log('Screen too small');
     sent.innerHTML = '<p>.Use a bigger window for a better experience.</p>';
     const x = document.createElement('div');
