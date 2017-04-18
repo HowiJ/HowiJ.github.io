@@ -40,6 +40,19 @@ img.logo:hover {
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
 }
+div.nav-links {
+  height: 4em;
+  opacity: 0.3;
+  transition: opacity 0.3s ease-in-out;
+}
+div.nav-links.active {
+  opacity: 1;
+}
+div.nav-links:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}
 .t_center {
   text-align: center;
 }
@@ -175,16 +188,10 @@ div.about_links .links {
   font-size: 1em;
 }
 
-.Skills{
-  display: none;
-  background: url('imgs/river.gif');
-  background-size: cover;
-  background-position-x: center;
-  color: gray;
-}
 .Projects{
   display: none;
-  background: url('imgs/fence_o.jpg');
+  /*background: url('imgs/fence_o.jpg');*/
+  background: transparent;
   background-size: cover;
   background-position-x: center;
 }
@@ -223,7 +230,7 @@ div.about_links .links {
   background: rgba(100,100,100,0.7);
 }
 .Projects .project_selector.active {
-  color: rgba(100,100,100,0.7);
+  color: rgba(0,0,0,1);
   background: rgba(255,255,255,0.3);
 }
 .Projects .project_selector:hover {
@@ -231,28 +238,6 @@ div.about_links .links {
   background: white;
   cursor: pointer;
 }
-
-
-.Contact{
-  display: none;
-  background: url('imgs/night_o.jpg');
-  background-size: cover;
-  background-position-x: center;
-  padding-top: 20vh;
-}
-.Contact a {
-  color: rgba(255,255,255,0.8);
-}
-.Contact a:hover {
-  transition: 0.5s ease-in-out;
-  color: gray;
-}
-.Contact i.contact {
-  font-size: 8em;
-}
-.Contact h1 {
+h5#pd_name {
   color: white;
-}
-.Contact * {
-  text-align: center;
 }

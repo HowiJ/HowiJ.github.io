@@ -71,8 +71,6 @@
     const ptop = el.offsetTop;
     const mid = ((window.innerHeight/2)-ptop)-(el.clientHeight/2);
     el.style.marginTop = (mid-ptop) + 'px';
-
-    console.log((window.innerHeight/2),(el.clientHeight/2),ptop);
   }
 
 
