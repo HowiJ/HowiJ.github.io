@@ -4,6 +4,7 @@
  { name: 'Chris Maddox', title: 'Scrum Master - FMFA, Inc.', content: `I had the pleasure of working with Howard on a scrum team while employed by FMFA, Inc. to develop a web site for a customer. Howard was instrumental in helping to complete the project on time and exceeded the customer's expectations by delivering a website that fully met their requirements. He worked collaboratively and efficiently with his scrum team and his abilities as a web developer were exemplary. Howard is very professional, smart and personable and so I can whole heartedly recommend him to anyone considering hiring him. I would welcome the opportunity to work with him again.`}]
   
   const About = document.getElementsByClassName('About')[0];
+  const af = document.getElementById('about_flashes');
   const x_mid = window.innerWidth/2;
 
   function setAboutFlashesLocation (el) {
@@ -64,30 +65,28 @@
   function handleAboutDesc () {
     const el = document.getElementById('kf_about_desc');
     const ptop = el.offsetTop;
-    const mid = ((window.innerHeight/2)-ptop*2)-(el.clientHeight/2);
+    const mid = ((window.innerHeight/2)-ptop)-(el.clientHeight/2);
     el.style.marginTop = (mid-ptop) + 'px';
 
     console.log((window.innerHeight/2),(el.clientHeight/2),ptop);
   }
 
 
-  componentDidLoad(() => {
-      const af = document.getElementById('about_flashes');
-      handleAboutFlashes(af, 4, 4, 8);
+  componentDidLoad(af, (el) => {
+      handleAboutFlashes(el, 4, 4, 8);
       handleAboutDesc();
   });
 
 
 
 
-  function componentDidLoad (callback) {
-    const el = document.getElementById('about_flashes');
+  function componentDidLoad (el, callback) {
 
     const int = setInterval(() => {
       if (el.clientWidth !== 0) {
         el.style.width = el.clientWidth;
         clearInterval(int);
-        if (callback && typeof callback == 'function') { callback(); }
+        if (callback && typeof callback == 'function') { callback(el); }
       }
     }, 10)
   }
