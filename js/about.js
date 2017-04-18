@@ -18,8 +18,9 @@
 
   function handleAboutFlashes ( el, iTime, oTime, delay, minHeight = 0 ) {
     setAboutFlashesLocation(el);
+    el.style.opacity = 0;
 
-    let mode = 0; // 0: iTime, 1: oTime, 2: delay
+    let mode = 2; // 0: iTime, 1: oTime, 2: delay
     let elapsed = 0;
     iTime = iTime*1000/60;
     oTime = oTime*1000/60;
