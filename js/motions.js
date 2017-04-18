@@ -5,7 +5,7 @@
   
   const pages = document.querySelectorAll('.FullPage');
   const links = document.querySelectorAll('.nav-links');
-  console.log(links.forEach);
+
   const lastPage = pages.length-1;
 
   let currentPage = parseInt(window.location.pathname.substr(1)) || 0;
