@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang='en'>
   <head>
+    <meta charset='utf-8'>
+    <meta title="Howard Jiang">
+    <meta name="description" content="Portfolio of Howard Jiang, web applications engineer.">
+    <meta name="keywords" content="Developer, Engineer, Front end, Back end, Full stack, Portfolio">
+    <meta author="Howard Yunghao Jiang">
+
+
     <title>Howard Jiang</title>
+    <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="./skeleton.min.css">
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="./style.css">
     
-    <meta charset='utf-8'>
+    <!-- Config -->
+    <!--<script src="./js/lib.js" defer></script>-->
     <script src="./js/loader.js" defer></script>
     <script src="./js/motions.js" defer></script>
+
+    <!-- Pages -->
+    <script src="./js/home.js" defer></script>
+    <script src="./js/about.js" defer></script>
     <script src="./js/projects.js" defer></script>
   </head>
   <body>
@@ -17,7 +30,8 @@
       <!--                   Home Page                   -->
       <!-- --------------------------------------------- -->
       <div class="FullPage Home centered" data-page="Home">
-        <div class="container">
+        <img id="Logo" src="imgs/logo_small.png" alt="Howard Jiang">
+        <!--<div class="container">
           <div class="row">
             <div class="columns twelve">
               <h4 id="name">Howard Jiang</h4>
@@ -29,9 +43,9 @@
               </div>
             </div>
 
-        </div>
+        </div>-->
         <div class="scrollContinue" id="scroll">
-          ...Scroll Up or Down to navigate...
+         <img src="imgs/mouse.png" alt="Scroll Wheel"> / <img src="imgs/arrows.png" alt="Scroll Wheel">
         </div>
       </div>
 
@@ -41,9 +55,9 @@
       <!-- --------------------------------------------- -->
       <div class="FullPage About" data-page="About">
         <div class="container">
-          <div class="row" id="kf_about_titl">
+          <div class="row">
             <div class="columns twelve">
-              <h1 class="c_white">About Me</h1>
+              <img class="logo" src="imgs/logo_small.png" alt="Howard Jiang">
             </div>
           </div>
           <div id="kf_about_desc">
@@ -57,7 +71,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="columns eight offset-by-two t_black">
+              <div class="columns eight offset-by-two c_white">
                 A web developer capable of full stack technologies. This of course incldues front end technologies such as (but not limited to) HTML5, CSS3, JavaScript, AngularJS, React + Redux, jQuery, Scalable Vector Graphs (SVGs) as well as back end technologies such as (but not limited to) PHP, CodeIgniter (PHP), Node, Express (Node). Feel free to visit my linkedin for more in-depth information!
               </div>
             </div>
@@ -69,13 +83,15 @@
                 <h4 class="c_white">Recommendations</h4>
               </div>
             </div>
-            <div class="row">
-              <div class="columns four recommendations">
+            <!--<div class="row">-->
+              <!--<div class="columns four recommendations">
                 <div class="row">
-                  <div class="columns six name">
-                    <p>Anna Propas</p>
+                  <div class="columns twelve name">
+                    <h4>Anna Propas</h4>
                   </div>
-                  <div class="columns six title">
+                </div>
+                <div class="row">
+                  <div class="columns twelve title">
                     Site Captain - Coding Dojo
                   </div>
                 </div>
@@ -89,10 +105,12 @@
               </div>
               <div class="columns four recommendations">
                 <div class="row">
-                  <div class="columns six name">
-                    <p>Alyssa Langelier</p>
+                  <div class="columns twelve name">
+                    <h4>Alyssa Langelier</h4>
                   </div>
-                  <div class="columns six title">
+                </div>
+                <div class="row">
+                  <div class="columns twelve title">
                     Career Services - Coding Dojo
                   </div>
                 </div>
@@ -106,10 +124,12 @@
               </div>
               <div class="columns four recommendations">
                 <div class="row">
-                  <div class="columns six name">
-                    <p>Chris Maddox</p>
+                  <div class="columns twelve name">
+                    <h4>Chris Maddox</h4>
                   </div>
-                  <div class="columns six title">
+                </div>
+                <div class="row">
+                  <div class="columns twelve title">
                     Scrum Master - FMFA, Inc.
                   </div>
                 </div>
@@ -120,8 +140,8 @@
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
+              </div>-->
+            <!--</div>-->
           </div>
         </div>
       </div>
@@ -145,7 +165,10 @@
       <div class="FullPage Projects" data-page="Projects">
         <div class="container">
           <div class="row">
-            <div class="columns twelve">
+            <div class="two">
+              <img class="logo" src="imgs/logo_small.png" alt="Howard Jiang">
+            </div>
+            <div class="columns ten">
               <a href="https://github.com/HowiJ" target="__BLANK"><h1 id="pp_title" class="t_black">Github.com/HowiJ</h1></a>
             </div>
           </div>

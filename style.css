@@ -1,3 +1,19 @@
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadetwo {
+  0%    { opacity: 0; }
+  33%   { opacity: 0; }
+  100%  { opacity: 1; }
+}
+@keyframes fadethree {
+  0%    { opacity: 0; }
+  50%   { opacity: 0; }
+  100%  { opacity: 1; }
+}
+
+
 * {
   margin: 0;
   overflow: hidden;
@@ -11,13 +27,23 @@ a:hover {
   text-decoration: none;
   color: white;
 }
+img.logo {
+  height: 5em;
+  opacity: 0.3;
+  transition: opacity 0.3s ease-in-out;
+}
+img.logo:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
 .t_center {
   text-align: center;
 }
 #Container {
   width: 100vw;
   height: 100vh;
-  background: slategray;
+  background: black;
 }
 .FullPage, .TransitionPage {
   padding-top: 5vh;
@@ -26,10 +52,11 @@ a:hover {
   height: 100vh;
   width: 100vw;
 
-  background: white;
-
   top: 0;
   position: absolute;
+}
+.TransitionPage {
+  background: white;
 }
 .centered * {
   text-align: center;
@@ -51,20 +78,6 @@ div#LoadingPage {
   background: white;
 }
 
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes fadetwo {
-  0%    { opacity: 0; }
-  33%   { opacity: 0; }
-  100%  { opacity: 1; }
-}
-@keyframes fadethree {
-  0%    { opacity: 0; }
-  50%   { opacity: 0; }
-  100%  { opacity: 1; }
-}
 .animOne {
   display: block;
   animation: fadein 2s;
@@ -85,38 +98,42 @@ div#LoadingPage {
 
 .Home{
   display: none;
+  /*background: url('imgs/logo.png');*/
   /*background: url('imgs/road_ground_o.jpg');*/
-  background: url('imgs/raindrops_o.gif');
-  background-size: cover;
-  background-position-x: center;
+  /*background-size: cover;
+  background-position-x: center;*/
+
 
   color: rgba(255,255,255,0.8);
+}
+img#Logo {
+  position: absolute;
+  opacity: 0;
 }
 .Home .container {
   margin-top: 20vh;
 }
 .scrollContinue {
-  /*animation: fadethree 4s;*/
   color: rgba(255,255,255,0.7);
   position: absolute;
   top: 90vh;
   width: 100%;
 }
+.scrollContinue img {
+  height: 2em;
+}
 
 
 .About{
   display: none;
-  /*background: lightgoldenrodyellow;*/
-  /*background: url('imgs/falls_ice.jpg');*/
-  background: url('imgs/lights_o.jpg');
-  /*background: url('imgs/still_raindrops.gif');*/
+  /*background: url('imgs/about.png');*/
   background-size: cover;
-  background-position-x: center;
+  background-position-x: left;
   color: RGB(0,0,0);
 }
 .recommendations .name {
   font-size: 1em;
-  color: rgba(0,0,0,0.7);
+  color: rgba(0,0,0,0.9);
 }
 .recommendations .title {
   color: gray;
@@ -124,19 +141,20 @@ div#LoadingPage {
 }
 .recommendations .description {
   max-height: 20vh;
-  color: rgba(0,0,0,0.7);
+  color: rgba(0,0,0,0.9);
 }
 .c_white {
   color: rgba(255, 255, 255, 0.8);
 }
 .t_black {
-  color: rgba(0,0,0,0.7);
+  color: rgba(0,0,0,0.9);
 }
-
+.rec {
+  color: white;
+}
 
 .Skills{
   display: none;
-  /*background: lightgreen;*/
   background: url('imgs/river.gif');
   background-size: cover;
   background-position-x: center;
@@ -144,23 +162,15 @@ div#LoadingPage {
 }
 .Projects{
   display: none;
-  /*background: lightskyblue;*/
-  /*background: url('imgs/still_water.gif');*/
   background: url('imgs/fence_o.jpg');
   background-size: cover;
   background-position-x: center;
 }
 .Projects .project {
-  /*border: 3px solid rgba(90,90,90,0.2);*/
   background: rgba(100, 100, 100, 0.1);
   padding: 1em;
   border-radius: 1em;
-  /*filter: grayscale(100%);*/
 }
-/*.Projects .project:hover {
-  transition: .5s ease-in-out;
-  filter: grayscale(0%);
-}*/
 .Projects .project .title { 
   color: black;
   font-size: 1.5em;
@@ -203,9 +213,6 @@ div#LoadingPage {
 
 .Contact{
   display: none;
-  /*background: lightgray;*/
-  /*background: url('imgs/sun_pano_optimized.jpg');*/
-  /*background: url('imgs/still_clouds.gif');*/
   background: url('imgs/night_o.jpg');
   background-size: cover;
   background-position-x: center;

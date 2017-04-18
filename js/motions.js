@@ -3,7 +3,6 @@
     console.log('width lower than 550px... Shouldn\'t use this...');
   }
   
-  
   const pages = document.querySelectorAll('.FullPage');
   const lastPage = pages.length-1;
 
@@ -16,20 +15,18 @@
   const LoadingPage = document.getElementById('LoadingPage');
   transitionPage.style.display = 'none';
 
-  // pages[currentPage].style.display = 'block';
   pages[currentPage].style.opacity = 1;
-
 
   const keyframes = [
     [
-      document.getElementById('name'),
-      document.getElementById('title'),
+      false,
       document.getElementById('scroll'),
+      false,
     ],
     [
       document.getElementById('kf_about_titl'),
       document.getElementById('kf_about_desc'),
-      document.getElementById('kf_about_recs'),
+      // document.getElementById('kf_about_recs'),
     ]
   ]
   function fireKeyFrames(page) {
@@ -51,15 +48,23 @@
 
   for (let i in keyframes) {
     for (let j in keyframes[i]) {
-      keyframes[i][j].classList.add('dispNone');
+      if (keyframes[i][j]) {
+        keyframes[i][j].classList.add('dispNone');
+      }
     }
   }
   fireKeyFrames(currentPage);
 
+  function handlePageSwitch(page) {
+      switchMode = true;
+      window.history.pushState({}, '', `/${page}` );
+      router(page);
+  }
+
   function router(next) {
     next = +next;
-    if (next < 0)             { next = 0; }
-    if (next >= pages.length) { next = pages.length-1; }
+    if (next < 0)             { next = 0; window.history.pushState({}, '', `/${next}`);}
+    if (next >= pages.length) { next = pages.length-1; window.history.pushState({}, '', `/${next}`); }
     if (next === currentPage) { switchMode = false; return; }
     document.getElementById('title_next').innerHTML = pages[next].dataset.page;
 
@@ -115,35 +120,52 @@
   }
 
   function scrollHandler(e) {
-    if (Math.abs(e.deltaX) > 1) { return; }
-    // console.log(e);
+    if (switchMode === true || Math.abs(e.deltaX) > 1) { return; }
 
     if (e.deltaY < -1) {
       // Scroll Up
-      if (!switchMode) {
-        switchMode = true;
-        window.history.pushState({}, '', `/${currentPage-1 >= 0?parseInt(currentPage)-1:0}` )
-        router(currentPage-1);
-      }
+      handlePageSwitch(currentPage-1);
     } else if (e.deltaY > 1) {
       // Scroll Down
-      if (!switchMode){
-        switchMode = true;
-        window.history.pushState({}, '', `/${currentPage+1 <= lastPage?parseInt(currentPage)+1:lastPage}` )
-        router(currentPage+1);
-      }
+      handlePageSwitch(currentPage+1);
     }
+  }
+
+  function onKeyPress (e) {
+    if (switchMode === true) { return; }
+
+    switch (e.keyCode) {
+      case 40: // Down
+      handlePageSwitch(currentPage+1);
+        break;
+      case 38: // Up
+      handlePageSwitch(currentPage-1);
+        break;
+    }
+    return;
   }
 
   window.onpopstate = function(e) {
     if (!switchMode) {
+      switchMode = true;
       router(window.location.pathname.substr(1));
     } else {
-      setTimeout(()=> {
-        router(window.location.pathname.substr(1));
-      }, 2000)
+      const int = setInterval(()=> {
+        if (!switchMode) {
+          clearInterval(int);
+          switchMode = true;
+          router(window.location.pathname.substr(1));
+          return;
+        }
+      }, 20)
     }
   };
+  // Keycodes
+  // 40 is down
+  // 38 is up
+  
+  document.addEventListener('keydown', onKeyPress);
   window.addEventListener('mousewheel', scrollHandler);
   window.addEventListener('DOMMouseScroll', scrollHandler);
+  Array.prototype.forEach.call(document.getElementsByClassName('logo'), logo => { logo.addEventListener('click', ()=>{ handlePageSwitch(0); }) }, this);
 }())
