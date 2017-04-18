@@ -17,7 +17,7 @@
 * {
   margin: 0;
   overflow: hidden;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 a {
   text-decoration: none;
@@ -26,6 +26,9 @@ a {
 a:hover {
   text-decoration: none;
   color: white;
+}
+.mid {
+  text-align: center;
 }
 img.logo {
   height: 5em;
@@ -151,6 +154,25 @@ img#Logo {
 }
 .rec {
   color: white;
+}
+p.ap_text {
+    font-size: 1.5em;
+    color: white;
+}
+div#about_flashes {
+  position: fixed;
+
+  font-size: 10em;
+  white-space: nowrap;
+  color: rgba(255,255,255, 0.1);
+}
+div.about_links .title {
+  color: rgba(255,255,255,1);
+  font-size: 0.75em;
+}
+div.about_links .links {
+  color: rgba(255,255,255,0.6);
+  font-size: 1em;
 }
 
 .Skills{
