@@ -43,7 +43,7 @@
       if (Logo.clientWidth !== 0) {
         clearInterval(int);
         handleLogoLoad();
-        Logo.style.opacity = 1;
+        Logo.style.opacity = 0.6;
       }
     }, 10);
   }

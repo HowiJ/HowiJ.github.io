@@ -20,14 +20,9 @@
   const keyframes = [
     [
       false,
-      document.getElementById('scroll'),
       false,
+      document.getElementById('scroll'),
     ],
-    [
-      document.getElementById('kf_about_titl'),
-      document.getElementById('kf_about_desc'),
-      // document.getElementById('kf_about_recs'),
-    ]
   ]
   function fireKeyFrames(page) {
     if (keyframes[page]) {
@@ -163,7 +158,7 @@
   // Keycodes
   // 40 is down
   // 38 is up
-  
+
   document.addEventListener('keydown', onKeyPress);
   window.addEventListener('mousewheel', scrollHandler);
   window.addEventListener('DOMMouseScroll', scrollHandler);
