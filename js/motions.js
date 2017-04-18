@@ -1,6 +1,6 @@
 (function () {
-  if (window.innerWidth < 550) {
-    console.log('width lower than 550px... Shouldn\'t use this...');
+  if (window.innerWidth < 550 || window.innerHeight <= 580) {
+    return;
   }
   
   const pages = document.querySelectorAll('.FullPage');

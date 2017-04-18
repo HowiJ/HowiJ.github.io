@@ -1,4 +1,27 @@
 (function(){
+  const dots = document.getElementById('lp_dot');
+  const sent = document.getElementById('lp_txt');
+
+  if (window.innerWidth < 550 || window.innerHeight <= 580) {
+    console.log('Screen too small');
+    sent.innerHTML = '<p>.Use a bigger window for a better experience.</p>';
+    const x = document.createElement('div');
+    const p = document.createElement('p');
+    const attr = document.createAttribute('style');
+    attr.value = 'font-size: 1.5rem';
+    const text = document.createTextNode('me@howardjiang.com . github.com/HowiJ . linkedin/in/howijiang');
+
+    dots.innerHTML = '';
+
+    p.appendChild(text);
+    p.setAttributeNode(attr);
+    x.appendChild(p);
+
+    sent.appendChild(document.createElement('br'));
+    sent.appendChild(x);
+    return;
+  }
+
   let doneLoading = false;
   let loadComplete = false;
   let bool = false;
@@ -19,8 +42,6 @@
   let current = messages;
   let other = usedMessages;
 
-  const dots = document.getElementById('lp_dot');
-  const sent = document.getElementById('lp_txt');
   let str = dots.innerText;
   const dotInt = setInterval(()=> {
     if (doneLoading) { clearInterval(dotInt); }

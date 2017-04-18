@@ -1,4 +1,7 @@
 (function() {
+  if (window.innerWidth < 550 || window.innerHeight <= 580) {
+    return;
+  }
   const Home = document.getElementsByClassName('Home')[0];
   const Logo = document.getElementById('Logo');
 
