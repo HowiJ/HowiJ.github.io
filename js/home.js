@@ -21,6 +21,7 @@
     Logo.style.top  = reset.y+'px';
   }
 
+
   function handleMouseMove(e) {
     if (parseInt(window.location.pathname.substr(1)) !== 0) { return; }
 
