@@ -1,5 +1,5 @@
 (function() {
-  if (window.innerWidth < 550 || window.innerHeight <= 580) {
+  if (window.innerWidth < 550 || window.innerHeight < 580) {
     return;
   }
  const recs = [{ name: 'Anna Propas', title: 'Site Captain - Coding Dojo', content: 'I had the pleasure of working with Howard as a peer and later as his direct supervisor. Howard is a true self-starter. During his time at Coding Dojo Howard frequently identified areas of need and acted quickly and decisively to provide solutions. Howard was a pleasure to work with and he will be sorely missed. I am positive that Howard will be an asset to any team. I hope to be able to work with him again in the future.'},

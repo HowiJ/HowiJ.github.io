@@ -1,5 +1,5 @@
 (function () {
-  if (window.innerWidth < 550 || window.innerHeight <= 580) {
+  if (window.innerWidth < 550 || window.innerHeight < 580) {
     return;
   }
   
