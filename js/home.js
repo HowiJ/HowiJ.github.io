@@ -22,6 +22,8 @@
   }
 
   function handleMouseMove(e) {
+    if (parseInt(window.location.pathname.substr(1)) !== 0) { return; }
+
     const l_height = Logo.clientHeight;
     const l_width = Logo.clientWidth;
 
@@ -35,7 +37,7 @@
   function handleLogoLoad () {
     resetLogo();
 
-    Home.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mousemove', handleMouseMove);
   }
 
   function onLogoLoad () {
