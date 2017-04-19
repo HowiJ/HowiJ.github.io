@@ -69,8 +69,8 @@
   function handleAboutDesc () {
     const el = document.getElementById('kf_about_desc');
     const ptop = el.offsetTop;
-    const mid = ((window.innerHeight/2)-ptop)-(el.clientHeight/2);
-    el.style.marginTop = (mid-ptop) + 'px';
+    const mid = ((window.innerHeight/2)-(el.clientHeight/2))-ptop;
+    el.style.marginTop = (mid) + 'px';
   }
 
 
