@@ -1,6 +1,11 @@
-// Component which handles all of the custom page switching.
+/**
+ * Component which handles all of the custom page switching.
+ */
 class Route {
-  constructor () {
+  /**
+   * Constructor, sets up the elements used in this class
+   */
+  constructor() {
     this.page = parseInt(window.location.pathname.substr(1)) || 0;
     this.pages = document.querySelectorAll('.FullPage');
     this.tran_page = document.querySelector('.TransitionPage');
@@ -8,25 +13,39 @@ class Route {
 
     this._init();
   }
-  // Minor initializing of certain properties and window states.
-  _init () {
-    if (this.page > this.pages.length-1) { this.page = this.pages.length-1; }
-    else if (!+this.page || this.page < 0) { this.page = 0; }
+
+  /**
+   * Minor initializing of certain properties and window states.
+   */
+  _init() {
+    if (this.page > this.pages.length-1) {
+      this.page = this.pages.length-1;
+    } else if (!+this.page || this.page < 0) {
+      this.page = 0;
+    }
     window.history.pushState({}, '', `/${this.page}` );
     this.tran_page.style.display = 'none';
 
     this.pages[this.page].style.opacity = 1;
   }
-  // Begins the switching. (This assumes the window state is already changed)
-  _setLocation (next) {
+
+  /**
+   * Begins the switching. (This assumes the window state is already changed)
+   * @param {int} next Next page index
+   */
+  _setLocation(next) {
     this.switchMode = true;
     next = +next;
     document.getElementById('title_next').innerHTML = this.pages[next].dataset.page;
     this.tran_page.style.display = 'block';
     this._fadeTranPage(next);
   }
-  // Fades the Transition Page in and then out.
-  _fadeTranPage (next) {
+
+  /**
+   * Fades the Transition Page in and then out.
+   * @param {int} next Next page index
+   */
+  _fadeTranPage(next) {
     const max = 150;
     const middle = max/2;
     let time = 0;
@@ -35,20 +54,20 @@ class Route {
     let mode = true;
 
     const inter = setInterval(() => {
-      /////////////////////////////////////////
+      // ///////////////////////////////////////
       time++;
       // Last Page || first page || Done
       if (time >= max) {
         this.tran_page.style.opacity = 0;
-        clearInterval(inter); 
-        this.switchMode = false; 
+        clearInterval(inter);
+        this.switchMode = false;
 
         this.tran_page.style.display = 'none';
         return;
-      } 
-      /////////////////////////////////////////
+      }
+      // ///////////////////////////////////////
 
-      /////////////////////////////////////////
+      // ///////////////////////////////////////
       subTime++;
       if (mode && subTime < middle) {
         // Fade In
@@ -69,28 +88,53 @@ class Route {
         this.pages[this.page].style.display = 'block';
         this.pages[this.page].style.opacity = 1;
       }
-      
     }, 1000/60);
   }
-  // For Up/Down keys & Scroll Up/Down
-  // Handles Window History State
-  location (page) {
-    if (page === undefined) { return this.page; }
+
+  /**
+   * For Up/Down keys & Scroll Up/Down
+   * Handles Window History State
+   * @param {int} page Page to switch to
+   * @return {int}
+   */
+  location(page) {
+    if (page === undefined) {
+      return this.page;
+    }
 
     // Transition page
-    if (this.switchMode === true) { return; }
+    if (this.switchMode === true) {
+      return;
+    }
 
-    if (page < 0)                  { page = 0 }
-    if (page >= this.pages.length) { page = this.pages.length-1 }
+    if (page < 0) {
+      page = 0;
+    }
+    if (page >= this.pages.length) {
+      page = this.pages.length-1;
+    }
 
-    if (page === this.page) { this.switchMode = false; return; }
+    if (page === this.page) {
+      this.switchMode = false; return;
+    }
 
     window.history.pushState( {}, '', `/${page}` );
     this._setLocation(page);
   }
 
-  next() { $router.location($router.location()+1); }
-  prev() { $router.location($router.location()-1); }
+  /**
+   * Switches to the next page
+   */
+  next() {
+    $router.location($router.location()+1);
+  }
+
+  /**
+   * Switches to the previous page
+   */
+  prev() {
+    $router.location($router.location()-1);
+  }
 }
 
 const $router = new Route();
