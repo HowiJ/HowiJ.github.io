@@ -102,8 +102,10 @@
       if (el.clientWidth !== 0) {
         el.style.width = el.clientWidth;
         clearInterval(int);
-        if (callback && typeof callback == 'function') { callback(el); }
+        if (callback && typeof callback == 'function') {
+        callback(el);
+        }
       }
-    }, 10)
+    }, 10);
   }
-}())
+}());
