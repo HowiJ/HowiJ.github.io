@@ -13,6 +13,7 @@ class Route {
     if (this.page > this.pages.length-1) { this.page = this.pages.length-1; }
     else if (!+this.page || this.page < 0) { this.page = 0; }
     window.history.pushState({}, '', `/${this.page}` );
+    this.tran_page.style.display = 'none';
 
     this.pages[this.page].style.opacity = 1;
   }
@@ -20,11 +21,8 @@ class Route {
   _setLocation (next) {
     this.switchMode = true;
     next = +next;
-
     document.getElementById('title_next').innerHTML = this.pages[next].dataset.page;
-
     this.tran_page.style.display = 'block';
-
     this._fadeTranPage(next);
   }
   // Fades the Transition Page in and then out.
