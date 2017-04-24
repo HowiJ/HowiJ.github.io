@@ -10,6 +10,7 @@
   const af = document.getElementById('about_flashes');
   const x_mid = window.innerWidth/2;
 
+  // Sets the about page flashing random location
   function setAboutFlashesLocation (el) {
     const randy = Math.random()*(window.innerHeight-el.clientHeight);
     const randx = Math.random()*(window.innerWidth-el.clientWidth);
@@ -29,8 +30,9 @@
     oTime = oTime*1000/60;
     delay = delay*1000/60;
 
+    // Handles about page background "About Me" flashes
     const int = setInterval(() => {
-      if (parseInt(window.location.pathname.substr(1)) !== 1) { return; }
+      if ( $router.location() !== 1 ) { return; }
       elapsed++;
 
       switch (mode) {
@@ -66,6 +68,8 @@
     }, 1000/60)
   }
 
+  // Centers the about page description
+  
   function handleAboutDesc () {
     const el = document.getElementById('kf_about_desc');
     const ptop = el.offsetTop;
@@ -83,7 +87,6 @@
 
 
   function componentDidLoad (el, callback) {
-
     const int = setInterval(() => {
       if (el.clientWidth !== 0) {
         el.style.width = el.clientWidth;
@@ -92,8 +95,4 @@
       }
     }, 10)
   }
-
-  About.addEventListener('mousemove', e => {
-    // console.log((e.clientX-x_mid)/(x_mid/2));
-  })
 }())
