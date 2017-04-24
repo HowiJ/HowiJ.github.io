@@ -1,0 +1,26 @@
+{
+  "name": "super",
+  "version": "1.0.0",
+  "description": "Portfolio Apr 2017",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HowiJ/HowiJ.github.io.git"
+  },
+  "keywords": [
+    "Portfolio"
+  ],
+  "author": "Howard Jiang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HowiJ/HowiJ.github.io/issues"
+  },
+  "homepage": "https://github.com/HowiJ/HowiJ.github.io#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1"
+  }
+}
