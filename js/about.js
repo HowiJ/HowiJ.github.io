@@ -87,11 +87,6 @@
     el.style.marginTop = (mid-ptop) + 'px';
   }
 
-  componentDidLoad(af, (el) => {
-      handleAboutFlashes(el, 4, 4, 8);
-      handleAboutDesc();
-  });
-
   /**
    * Once the component is loaded
    * @param {object} el the element that flashes
@@ -108,4 +103,9 @@
       }
     }, 10);
   }
+
+  componentDidLoad(af, (el) => {
+      handleAboutFlashes(el, 4, 4, 8);
+      handleAboutDesc();
+  });
 }());
