@@ -2,7 +2,7 @@
   if (window.innerWidth < 550 || window.innerHeight < 580) {
     return;
   }
-  
+
   const projects = [
     {
       name: 'CodeBoard',
@@ -29,10 +29,10 @@
       description: 'A non-profit project using the Scrum Framework based on Agile Methodologies. Front-end: AngularJS, Back-end: NodeJS + ExpressJS + PostGREsql. Created many back-end algorithms for data retrieval from Google Civics API, as well as password resetting & email confirmation. Created front-end for password reset. Created a system to wipe users that have registered but have not confirmed their email after a certain time.',
     },
   ];
-  const pd_name = document.getElementById('pd_name');
-  const pd_img = document.getElementById('pd_img');
-  const pd_url = document.getElementById('pd_url');
-  const pd_desc = document.getElementById('pd_desc');
+  const pdName = document.getElementById('pd_name');
+  const pdImg = document.getElementById('pd_img');
+  const pdUrl = document.getElementById('pd_url');
+  const pdDesc = document.getElementById('pd_desc');
 
   const selectors = document.getElementsByClassName('project_selector');
 
@@ -53,23 +53,38 @@
     handleActiveSelector(newActive);
   }, 10000);
 
+  /**
+   * Handles switching to the new active project
+   */
   function handleSwitchActiveProject() {
-    pd_name.innerHTML = projects[active].name;
-    pd_img.src = projects[active].img_url;
-    pd_url.href = projects[active].site_url;
-    pd_url.innerHTML = projects[active].site_url.split('://')[1];
-    pd_desc.innerHTML = projects[active].description;
+    pdName.innerHTML = projects[active].name;
+    pdImg.src = projects[active].img_url;
+    pdUrl.href = projects[active].site_url;
+    pdUrl.innerHTML = projects[active].site_url.split('://')[1];
+    pdDesc.innerHTML = projects[active].description;
   }
+  /**
+   * New active menu button actions
+   * @param {int} newActiveSelectorIndex Index of the new active selector
+   */
   function handleActiveSelector(newActiveSelectorIndex) {
     selectors[active].classList.remove('active');
     active = newActiveSelectorIndex;
     selectors[active].classList.add('active');
     handleSwitchActiveProject();
   }
+  /**
+   * Handles what happens when the mouse hoverin the element
+   * @param {object} e Mouseenter event object
+   */
   function handleMouseEnter(e) {
     mouseOver = true;
-    handleActiveSelector(Array.prototype.indexOf.call(selectors,this));
+    handleActiveSelector(Array.prototype.indexOf.call(selectors, this));
   }
+  /**
+   * Handles what happens when the mouse hoverout the element
+   * @param {object} e Mouseout event object
+   */
   function handleMouseOut(e) {
     mouseOver = false;
   }
@@ -78,4 +93,4 @@
     el.addEventListener('mouseenter', handleMouseEnter.bind(el));
     el.addEventListener('mouseout', handleMouseOut.bind(el));
   }, this);
-}())
+}());
