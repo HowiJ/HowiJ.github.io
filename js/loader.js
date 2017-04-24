@@ -1,4 +1,9 @@
-(function(){
+(function() {
+  /**
+   * This File works with the loading page.
+   * Also handles if the screen is too small.
+  */
+
   const dots = document.getElementById('lp_dot');
   const sent = document.getElementById('lp_txt');
 
@@ -9,7 +14,8 @@
     const p = document.createElement('p');
     const attr = document.createAttribute('style');
     attr.value = 'font-size: 1.5rem';
-    const text = document.createTextNode('me@howardjiang.com . github.com/HowiJ . linkedin/in/howijiang');
+    const txt = 'me@howardjiang.com . github.com/HowiJ . linkedin/in/howijiang';
+    const text = document.createTextNode(txt);
 
     dots.innerHTML = '';
 
@@ -23,8 +29,6 @@
   }
 
   let doneLoading = false;
-  let loadComplete = false;
-  let bool = false;
 
   const messages = [
     'Answering some callbacks',
@@ -36,7 +40,7 @@
     'Surfing the web',
     'Changing your application state',
     'Listening to some events',
-    'sudo rm -rf /'
+    'sudo rm -rf /',
   ];
   const usedMessages = [];
   let current = messages;
@@ -44,7 +48,9 @@
 
   let str = dots.innerText;
   const dotInt = setInterval(()=> {
-    if (doneLoading) { clearInterval(dotInt); }
+    if (doneLoading) {
+      clearInterval(dotInt);
+    }
 
     str+='.';
     if (str.length >= 4) {
@@ -53,13 +59,13 @@
     dots.innerHTML = str;
   }, 500);
 
-  let rng = Math.floor(Math.random()*messages.length)
+  let rng = Math.floor(Math.random()*messages.length);
   sent.innerHTML = messages[rng];
   usedMessages.push(messages[rng]);
   messages.splice(rng, 1);
   const msgInt = setInterval(() => {
     if (!doneLoading) {
-      let rng = Math.floor(Math.random()*current.length)
+      let rng = Math.floor(Math.random()*current.length);
       sent.innerHTML = current[rng];
       other.push(current[rng]);
       current.splice(rng, 1);
@@ -71,10 +77,11 @@
     } else {
       clearInterval(msgInt);
     }
-  }, 3000)
+  }, 3000);
 
-
-
+  /**
+   * Sets up the loading page, fades out the loading page
+   */
   function init() {
     const lp = document.getElementById('LoadingPage');
     const stallTime = 60;
@@ -82,7 +89,7 @@
     let elapsedTime = 0;
     let mode = false;
 
-    var int = setInterval(() => {
+    const int = setInterval(() => {
       elapsedTime++;
       if (mode === false && elapsedTime >= stallTime) {
         mode = true;
@@ -93,11 +100,10 @@
         if (parseFloat(lp.style.opacity) < 0) {
           clearInterval(int);
           lp.style.display = 'none';
-
         }
-        lp.style.opacity = 1-elapsedTime/maxTime; 
+        lp.style.opacity = 1-elapsedTime/maxTime;
       }
-    },1000/60)
+    }, 1000/60);
   }
   const loaded = setInterval(() => {
     if (/loaded|complete/.test(document.readyState)) {
@@ -111,7 +117,7 @@
         let currentPage = parseInt(window.location.pathname.substr(1)) || 0;
         pages[currentPage].style.display = 'block';
         pages[currentPage].style.opacity = 1;
-      }, 1000)
+      }, 1000);
     }
   }, 10);
-}())
+}());
